@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+font {
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Lobster', sans-serif;
+
+}
+
+/* * {
+    font-family: 'Oswald', sans-serif;
+} */
