@@ -14,7 +14,8 @@ const NavBar = () => {
                 </NavLink>
                 <li tabIndex={0}>
                     <details>
-                        <summary>Admin</summary>
+                        <summary><p>Admin</p></summary>
+                        {/* <p>Admin</p> */}
                         <ul className="p-4 text-black absolute glass flex flex-col gap-4 rounded-lg">
                             <NavLink
                                 to={`/addProduct`}

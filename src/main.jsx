@@ -8,6 +8,7 @@ import {
 import Banner from './Components/Banner.jsx/Banner';
 import Home from './Components/Home/Home';
 import Award from './Components/Award/Award';
+import AddProduct from './Components/Admin/AddProduct';
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path:'/award',
         element:<Award></Award>
+      },
+      {
+        path:'/addProduct',
+        element:<AddProduct></AddProduct>
       }
     ]
   }
