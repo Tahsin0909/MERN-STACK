@@ -5,28 +5,32 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Banner from './Components/Banner.jsx/Banner';
+
 import Home from './Components/Home/Home';
 import Award from './Components/Award/Award';
 import AddProduct from './Components/Admin/AddProduct';
+
+import MainHome from './MainHome/MainHome';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home></Home>,
-    children:[
+    children: [
       {
-        path:'/',
-        element:<Banner></Banner>
-      },
-      {
-        path:'/award',
-        element:<Award></Award>
-      },
-      {
-        path:'/addProduct',
-        element:<AddProduct></AddProduct>
+        path: '/',
+        element: <MainHome></MainHome>
       }
+      ,
+      {
+        path: '/award',
+        element: <Award></Award>
+      },
+      {
+        path: '/addProduct',
+        element: <AddProduct></AddProduct>
+      }
+
     ]
   }
 ]);
