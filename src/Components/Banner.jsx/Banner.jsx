@@ -16,7 +16,7 @@ const Banner = () => {
                         <p className="mb-5 text-2xl">Your Dream Car Today at SignatureDrive. <br /> Your Source for Top Brands and Unmatched Deals. A Legacy of Trust and Excellence in Every Vehicle </p>
                         <p className="font-[Montserrat Alternates]">
                             Find the Perfect Match for Your Lifestyle -  <br />
-                            <button className="btn shadow-lg hover:text-blue-900  bg-blue-900 text-white mt-4">Discover Now</button>
+                            <button className="btn shadow-lg hover:text-blue-900  glass text-white mt-4">Get Started</button>
                         </p>
                     </div>
                 </div>
