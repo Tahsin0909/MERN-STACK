@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const NavBar = () => {
     const Navlink = () => {
@@ -123,7 +123,7 @@ const NavBar = () => {
     }
     return (
         <div>
-            <div className="navbar bg-blue-900 p-3 ">
+            <div className="navbar bg-blue-900 ">
                 <div className="navbar-start ">
                     <div className="dropdown ">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -151,11 +151,16 @@ const NavBar = () => {
                             </div>
                         </ul>
                     </div>
-                    <a
-                        style={{
-                            fontFamily: 'Lobster'
-                        }}
-                        className=" md:text-3xl text-xl text-white">SignatureDrive</a>
+                    <div className="flex items-center" >
+                        <a
+                            style={{
+                                fontFamily: 'Lobster',
+                                fontWeight:"lighter"
+                            }}
+                            className=" md:text-3xl text-lg text-white ">SignatureDrive
+                        </a>
+                        <img  className="md:w-24 h-fit w-20  relative right-10" src="https://i.ibb.co/VBjrY05/Untitled-design-1-removebg-preview.png" alt="Company Logo" />
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal px-1 text-white">
@@ -165,8 +170,9 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <img className="glass rounded-full w-14 " src="https://cdn-icons-png.flaticon.com/128/2102/2102647.png" alt="" />
-                    <img className="glass rounded-full w-14 hidden" src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="" />
+                    <Link to={'/myCart'} ><img className=" rounded-full mx-4 pr-2  p-1 md:w-12 w-10 " src="https://cdn-icons-png.flaticon.com/128/11761/11761486.png" alt="" /></Link>
+                    <img className="glass rounded-full md:w-12 w-10 " src="https://cdn-icons-png.flaticon.com/128/2102/2102647.png" alt="" />
+                    <img className="glass rounded-full w-12 hidden" src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="" />
                 </div>
             </div>
             <div className="text-blue-800 bg-gray-200 font-semibold  hidden lg:flex items-center justify-center" >
