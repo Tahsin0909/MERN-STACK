@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -23,7 +24,7 @@ const Brands = () => {
 
     console.log(brands);
     return (
-        <div className="my-10 mx-4 md:mx-0" >
+        <div className="py-10 mx-4 md:mx-0 bg-slate-200 " >
             <div className="text-center">
                 <p className="text-blue-800">Best Solution For Your Needs</p>
                 <h1 className="text-3xl font-extrabold">MULTI BRANDS DEALER</h1>
@@ -31,11 +32,12 @@ const Brands = () => {
             <div className="flex justify-center items-center mt-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {
-                        brands.map(data => <div key={data.brand} className="flex flex-col md:flex-row  bg-slate-200 shadow-xl w-fit md:h-52 rounded-xl transition ease-in-out delay-100  hover:scale-105  duration-300">
+                        brands.map(data => <Link to={`/${data.brand.toLowerCase()}`}  key={data.brand}  >
+                        <div className="flex flex-col md:flex-row  shadow-xl w-fit md:h-52 rounded-xl transition ease-in-out delay-100  hover:scale-105  duration-300">
                             <figure>
                                 <img className="w-full md:w-[320px] h-full rounded-t-xl md:rounded-l-xl" src={data.photo} alt="Movie" />
                             </figure>
-                            <div className="flex justify-center flex-col md:w-56 bg-slate-200 p-2 md:p-1">
+                            <div className="flex justify-center bg-glass md:rounded-r-xl rounded-b-xl flex-col md:w-56 p-2 md:p-1">
                                 <div className="flex items-center shadow-md gap-3 border-blue-900 rounded-lg border-2  md:ml-4 w-fit px-3 py-1">
                                     <img className="w-8 md:w-10" src={data.logo} alt="" />
                                     <h2 className="md:text-2xl text-lg font-extrabold text-blue-900 ">{data.brand}</h2>
@@ -44,7 +46,9 @@ const Brands = () => {
                                     <p>{data.description}</p>
                                 </div>
                             </div>
-                        </div>)
+                        </div>
+                        </Link>
+                        )
                     }
                 </div>
             </div>

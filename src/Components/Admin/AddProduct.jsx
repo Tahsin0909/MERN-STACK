@@ -21,6 +21,15 @@ const AddProduct = () => {
             brand, model, price, description, horsePower, torque, acceleration, engineType, transmission, frontBreak, technology_1, technology_2, photo_url
         }
         console.log(Product)
+        fetch('http://localhost:5000/product', {
+            method:'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(Product)
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
     return (
         <div className="my-10 flex flex-col justify-center items-center" >
