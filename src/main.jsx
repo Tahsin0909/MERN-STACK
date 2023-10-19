@@ -12,6 +12,7 @@ import AddProduct from './Components/Admin/AddProduct';
 
 import MainHome from './MainHome/MainHome';
 import AllProduct from './Components/AllProduct.jsx/AllProduct';
+import Car from './Components/SingleCar/Car';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,12 @@ const router = createBrowserRouter([
         path: '/update',
         loader: () => fetch('http://localhost:5000/product'),
         element: <AllProduct></AllProduct>
+      }
+      ,
+      {
+        path: '/product/:id',
+        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
+        element: <Car></Car>
       }
 
     ]

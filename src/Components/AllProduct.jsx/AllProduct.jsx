@@ -54,7 +54,7 @@ const AllProduct = () => {
                                     <div className="text-center">
                                         <p>Starting At: <span className="font-bold" >{data.price}</span></p>
                                     </div>
-                                    <div className="flex justify-center items-center gap-2 py-2 px-4">
+                                    <div className="flex flex-wrap justify-center items-center gap-2 py-2 px-4">
                                         <Link to={`/product/${data._id}`}><button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Discover Now</button></Link>
                                         <button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Update</button>
                                         <button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Delete</button>
