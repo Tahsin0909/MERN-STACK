@@ -19,12 +19,12 @@ const Brands = () => {
         { brand: "Chevrolet", description: "A wide range of vehicles, from trucks to compact cars.", logo: "https://i.ibb.co/0F1ZMT9/image-removebg-preview-7.png", photo: "https://i.ibb.co/FbNtYqH/image.png" }
     ];
 
-    console.log(brands);
+    // console.log(brands);
 
 
-    console.log(brands);
+    // console.log(brands);
     return (
-        <div className="py-10 mx-4 md:mx-0 bg-slate-200 " >
+        <div className="py-10 px-4 md:px-0 bg-slate-200 " >
             <div className="text-center">
                 <p className="text-blue-800">Best Solution For Your Needs</p>
                 <h1 className="text-3xl font-extrabold">MULTI BRANDS DEALER</h1>
