@@ -1,6 +1,7 @@
-
+import Swal from 'sweetalert2'
 
 const AddProduct = () => {
+
     const handleAddProduct = event => {
         event.preventDefault()
         const form = event.target
@@ -20,16 +21,35 @@ const AddProduct = () => {
         const Product = {
             brand, model, price, description, horsePower, torque, acceleration, engineType, transmission, frontBreak, technology_1, technology_2, photo_url
         }
-        console.log(Product)
+        // console.log(Product)
         fetch('http://localhost:5000/product', {
-            method:'POST',
-            headers:{
+            method: 'POST',
+            headers: {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(Product)
         })
-        .then(res => res.json())
-        .then(data => console.log(data))
+            .then(res => res.json())
+            .then(data => {
+                if (data.acknowledged) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Your Product Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'DONE'
+                    })
+                }
+                else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Do you want to continue',
+                        icon: 'error',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+
+
+            })
     }
     return (
         <div className="my-10 flex flex-col justify-center items-center" >
