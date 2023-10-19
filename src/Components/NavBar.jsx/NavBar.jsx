@@ -31,7 +31,7 @@ const NavBar = () => {
                                     isActive ? "active border py-2 px-4 bg-transparent" : isPending ? "pending" : " px-4"
                                 }
                             >
-                                Update
+                                Actions
                             </NavLink>
                         </ul>
                     </details>

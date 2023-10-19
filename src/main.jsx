@@ -11,6 +11,7 @@ import Award from './Components/Award/Award';
 import AddProduct from './Components/Admin/AddProduct';
 
 import MainHome from './MainHome/MainHome';
+import AllProduct from './Components/AllProduct.jsx/AllProduct';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
       {
         path: '/addProduct',
         element: <AddProduct></AddProduct>
+      }
+      ,
+      {
+        path: '/update',
+        loader: () => fetch('http://localhost:5000/product'),
+        element: <AllProduct></AllProduct>
       }
 
     ]
