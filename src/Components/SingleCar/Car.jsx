@@ -1,11 +1,12 @@
 /* eslint-disable react/no-unescaped-entities */
+import { Rating } from "@mui/material";
 import { useLoaderData } from "react-router-dom";
 
 
 const Car = () => {
     const CarData = useLoaderData()
     console.log(CarData)
-    const { brand, model, price, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url } = CarData
+    const { brand, model, price,rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url } = CarData
     return (
         <div className="py-20 lg:px-0 md:px-8 flex justify-center items-center">
             <div>
@@ -18,6 +19,7 @@ const Car = () => {
                                     <h1 className="text-xl font-extrabold text-blue-600">{brand}</h1>
                                     <p className="text-xl font-extrabold text-blue-600">{model}</p>
                                 </div>
+                                <Rating name="half-rating-read" defaultValue={rating} precision={0.5} readOnly />
                                 <p>Starting At: <span className="font-bold">{price}</span></p>
                             </div>
                             <div>
@@ -66,7 +68,7 @@ const Car = () => {
                         </div>
                         <div className="w-fit lg:border-r px-3" >
                             <div className="flex  items-center gap-2 border-b" >
-                                <img className="w-10" src="https://cdn-icons-png.flaticon.com/128/3825/3825832.png" alt="" />
+                                <img className="w-10" src="https://cdn-icons-png.flaticon.com/128/2520/2520368.png" alt="" />
                                 <p className="text-2xl" >Transmission</p>
                             </div>
                             <p className="text-center text-2xl">{transmission}</p>

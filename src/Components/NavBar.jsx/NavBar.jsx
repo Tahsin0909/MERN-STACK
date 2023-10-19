@@ -26,7 +26,7 @@ const NavBar = () => {
                                 Add Product
                             </NavLink>
                             <NavLink
-                                to={`/update`}
+                                to={`/action`}
                                 className={({ isActive, isPending }) =>
                                     isActive ? "active border py-2 px-4 bg-transparent" : isPending ? "pending" : " px-4"
                                 }
@@ -99,7 +99,7 @@ const NavBar = () => {
                     Nissan
                 </NavLink>
                 <NavLink
-                    to={`/mercedes`}
+                    to={`/mercedes-benz`}
                     className={({ isActive, isPending }) =>
                         isActive ? "active border p-1 px-4 bg-blue-900 text-white" : isPending ? "pending" : "p-1 px-4"}
                 >

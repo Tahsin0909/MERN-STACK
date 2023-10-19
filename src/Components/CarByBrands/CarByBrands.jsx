@@ -1,3 +1,4 @@
+import { Rating } from "@mui/material";
 import { Link, useLoaderData, useParams } from "react-router-dom";
 
 
@@ -28,6 +29,7 @@ const CarByBrands = () => {
                                             <div className="flex items-center gap-3 border-blue-900 rounded-sm border-2  md:ml-4 w-fit px-3 py-1">
                                                 <h2 className="md:text-xl text-lg font-extrabold text-blue-900 ">Model: {data.model}</h2>
                                             </div>
+                                            <Rating className="py-1" name="half-rating-read" defaultValue={data.rating} precision={0.5} readOnly />
                                             <div className="flex justify-center p-2">
                                                 <div className="p-1 border-r-2 border-blue-900">
                                                     <p className="text-lg font-bold border-b-2 border-blue-900">Mileage</p>
@@ -44,8 +46,6 @@ const CarByBrands = () => {
                                         </div>
                                         <div className="flex flex-wrap justify-center items-center gap-2 py-2 px-4">
                                             <Link to={`/product/${data._id}`}><button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Discover Now</button></Link>
-                                            <button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Update</button>
-                                            <button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Delete</button>
                                         </div>
                                     </div>
                                 </div>

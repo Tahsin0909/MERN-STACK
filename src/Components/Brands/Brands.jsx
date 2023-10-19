@@ -12,7 +12,7 @@ const Brands = () => {
 
         { brand: "Nissan", description: "Innovative carmaker with a focus on advanced technology.", logo: "https://i.ibb.co/qybf126/image-removebg-preview-5.png", photo: "https://i.ibb.co/sJbq43T/image.png" },
 
-        { brand: "Mercedes", description: "Elegant and sophisticated vehicles, a symbol of luxury.", logo: "https://i.ibb.co/D47Dt8T/image-removebg-preview-6.png", photo: "https://i.ibb.co/gWfhFrx/image.png" },
+        { brand: "Mercedes-Benz", description: "Elegant and sophisticated vehicles, a symbol of luxury.", logo: "https://i.ibb.co/D47Dt8T/image-removebg-preview-6.png", photo: "https://i.ibb.co/gWfhFrx/image.png" },
 
         { brand: "BMW", description: "Sporty and dynamic cars that offer a thrilling driving experience.", logo: "https://i.ibb.co/ZxKK103/image-removebg-preview.png", photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYkiwO0peEoONAUd1GwwqR2WzMbgPw3XL95A&usqp=CAU" },
 
