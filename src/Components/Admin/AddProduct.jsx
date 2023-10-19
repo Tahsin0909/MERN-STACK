@@ -9,17 +9,17 @@ const AddProduct = () => {
         const model = form.model.value
         const price = form.price.value
         const description = form.description.value
-        const horsePower = form.horsePower.value
-        const torque = form.torque.value
+        const seatingCapacity = form.seatingCapacity.value
+        const mileage = form.mileage.value
         const acceleration = form.acceleration.value
-        const engineType = form.engineType.value
+        const engine = form.engine.value
         const transmission = form.transmission.value
-        const frontBreak = form.frontBreak.value
+        const fueltype = form.fueltype.value
         const technology_1 = form.technology_1.value
         const technology_2 = form.technology_2.value
         const photo_url = form.photo_url.value
         const Product = {
-            brand, model, price, description, horsePower, torque, acceleration, engineType, transmission, frontBreak, technology_1, technology_2, photo_url
+            brand, model, price, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url
         }
         // console.log(Product)
         fetch('http://localhost:5000/product', {
@@ -116,27 +116,27 @@ const AddProduct = () => {
                     {/* HorsePOwer And Torque */}
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="relative h-11 w-64">
-                            <input name='horsePower' defaultValue={"500HP"}
+                            <input name='seatingCapacity' defaultValue={"4 or 5"}
                                 className="peer h-full w-full rounded-md border border-blue-900-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-900-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-900-200 placeholder-shown:border-t-blue-900-200 focus:border-2 focus:border-blue-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-900-50"
                             />
                             <label
                                 className=" before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-2 flex h-full w-full select-none text-[16px] font-normal leading-tight text-black transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-900-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-900-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-900-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-blue-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-blue-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-900-500">
-                                HorsePower
+                                Seating Capacity
                             </label>
                         </div>
                         <div className="relative h-11 w-64 ">
-                            <input name="torque" defaultValue={"45 lb_ft"}
+                            <input name="mileage" defaultValue={"20.11 to 26.11 kmpl"}
                                 className="peer h-full w-full rounded-md border border-blue-900-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-900-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-900-200 placeholder-shown:border-t-blue-900-200 focus:border-2 focus:border-blue-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-900-50"
                             />
                             <label className=" before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-2 flex h-full w-full select-none text-[16px] font-normal leading-tight text-black transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-900-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-900-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-900-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-blue-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-blue-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-900-500">
-                                Torque
+                                Mileage
                             </label>
                         </div>
                     </div>
                     {/* Acceleration And EngineType */}
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="relative h-11 w-64 ">
-                            <input name='acceleration' defaultValue={"7.0 sec"}
+                            <input name='acceleration' defaultValue={"20 sec"}
                                 className="peer h-full w-full rounded-md border border-blue-900-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-900-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-900-200 placeholder-shown:border-t-blue-900-200 focus:border-2 focus:border-blue-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-900-50"
                             />
                             <label
@@ -145,18 +145,18 @@ const AddProduct = () => {
                             </label>
                         </div>
                         <div className="relative h-11 w-64 ">
-                            <input name="engineType" defaultValue={"V3"}
+                            <input name="engine" defaultValue={"1300 cc"}
                                 className="peer h-full w-full rounded-md border border-blue-900-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-900-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-900-200 placeholder-shown:border-t-blue-900-200 focus:border-2 focus:border-blue-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-900-50"
                             />
                             <label className=" before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-2 flex h-full w-full select-none text-[16px] font-normal leading-tight text-black transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-900-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-900-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-900-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-blue-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-blue-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-900-500">
-                                Engine-Type
+                                Engine
                             </label>
                         </div>
                     </div>
                     {/* Transmission And Front-Break */}
                     <div className="flex flex-col md:flex-row gap-4">
                         <div className="relative h-11 w-64 ">
-                            <input name='transmission' defaultValue={'7'}
+                            <input name='transmission' defaultValue={'Manual or Automatic'}
                                 className="peer h-full w-full rounded-md border border-blue-900-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-900-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-900-200 placeholder-shown:border-t-blue-900-200 focus:border-2 focus:border-blue-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-900-50"
                             />
                             <label
@@ -165,11 +165,11 @@ const AddProduct = () => {
                             </label>
                         </div>
                         <div className="relative h-11 w-64 ">
-                            <input name="frontBreak" defaultValue={'15.8'}
+                            <input name="fueltype" defaultValue={'Petrol etc'}
                                 className="peer h-full w-full rounded-md border border-blue-900-200 border-t-transparent bg-transparent px-3 py-3 font-sans text-sm font-normal text-blue-900-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-900-200 placeholder-shown:border-t-blue-900-200 focus:border-2 focus:border-blue-900 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-900-50"
                             />
                             <label className=" before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-2 flex h-full w-full select-none text-[16px] font-normal leading-tight text-black transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-900-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-900-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.1] peer-placeholder-shown:text-blue-900-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-blue-900 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:!border-blue-900 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:!border-blue-900 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-900-500">
-                                Front-Break-Disk-Size
+                                Fuel Type
                             </label>
                         </div>
                     </div>

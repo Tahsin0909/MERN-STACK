@@ -71,7 +71,7 @@ const NavBar = () => {
         return (
             <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-0" >
                 <NavLink
-                    to={`/`}
+                    to={`/honda`}
                     className={({ isActive, isPending }) =>
                         isActive ? "active border p-1 px-4 bg-blue-900 text-white" : isPending ? "pending" : "p-1 px-4"}
                 >
@@ -106,7 +106,7 @@ const NavBar = () => {
                     Mercedes-Benz
                 </NavLink>
                 <NavLink
-                    to={`/nmw`}
+                    to={`/bmw`}
                     className={({ isActive, isPending }) =>
                         isActive ? "active border p-1 px-4 bg-blue-900 text-white" : isPending ? "pending" : "p-1 px-4"}
                 >

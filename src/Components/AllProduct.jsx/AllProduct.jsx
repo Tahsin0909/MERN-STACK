@@ -6,17 +6,25 @@ import { Link } from "react-router-dom";
 const AllProduct = () => {
 
     const [products, setProducts] = useState([])
-    const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setProducts(data);
-                setLoading(false)
             })
-
-    }, [loading])
+    }, [])
+    const handleDelete = id => {
+        fetch(`http://localhost:5000/product/${id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                const remaining = products.filter(prod => prod._id !== id)
+                setProducts(remaining)
+            })
+    }
     return (
         <div className="bg-blue-100 py-10">
             <div>
@@ -29,8 +37,7 @@ const AllProduct = () => {
                             <div className=" rounded-lg overflow-hidden w-[300px] lg:w-[400px] shadow-lg  transform hover:scale-105 transition-transform duration-300">
                                 <div className="">
                                     {
-                                        loading ? <img src="https://via.placeholder.com/200" alt="Placeholder" className="h-full w-full" />
-                                            : <img src={data.photo_url} alt="Placeholder" className="w-full" />
+                                        <img src={data.photo_url} alt="Placeholder" className="w-full h-[250px]" />
                                     }
 
                                 </div>
@@ -42,12 +49,12 @@ const AllProduct = () => {
                                         </div>
                                         <div className="flex justify-center p-2">
                                             <div className="p-1 border-r-2 border-blue-900">
-                                                <p className="text-lg font-bold border-b-2 border-blue-900">HorsePower</p>
-                                                <p>{data.horsePower}</p>
+                                                <p className="text-lg font-bold border-b-2 border-blue-900">Mileage</p>
+                                                <p>{data.mileage}</p>
                                             </div>
                                             <div className="p-1 border-b-2 border-blue-900">
-                                                <p className="text-lg font-bold">Torque</p>
-                                                <p>{data.torque}</p>
+                                                <p className="text-lg font-bold">Engine</p>
+                                                <p>{data.engine}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -57,7 +64,7 @@ const AllProduct = () => {
                                     <div className="flex flex-wrap justify-center items-center gap-2 py-2 px-4">
                                         <Link to={`/product/${data._id}`}><button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Discover Now</button></Link>
                                         <button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Update</button>
-                                        <button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Delete</button>
+                                        <button onClick={() => handleDelete(data._id)} className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Delete</button>
                                     </div>
                                 </div>
                             </div>

@@ -13,6 +13,7 @@ import AddProduct from './Components/Admin/AddProduct';
 import MainHome from './MainHome/MainHome';
 import AllProduct from './Components/AllProduct.jsx/AllProduct';
 import Car from './Components/SingleCar/Car';
+import CarByBrands from './Components/CarByBrands/CarByBrands';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +44,12 @@ const router = createBrowserRouter([
         path: '/product/:id',
         loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
         element: <Car></Car>
+      }
+      ,
+      {
+        path: '/:brand',
+        loader: () => fetch('http://localhost:5000/product'),
+        element: <CarByBrands></CarByBrands>
       }
 
     ]
