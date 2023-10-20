@@ -5,10 +5,12 @@ import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged,
 
 import auth from "../SDK/Sdk";
 
+
 const AuthContext = createContext()
 const ContextApi = ({ children }) => {
     // emailAndPassword Authentication
     const [user, setUser] = useState({})
+    const [MdbUser, setMdbUser] = useState({})
     const [loading, setLoading] = useState(true)
     // console.log(loading)
 
@@ -37,8 +39,8 @@ const ContextApi = ({ children }) => {
     useEffect(() => {
         const Unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                setUser(user),
-                    console.log(user)
+                setUser(user)
+                    // console.log(user)
                 if (user.email) {
                     setLoading(false)
                 }
@@ -67,6 +69,13 @@ const ContextApi = ({ children }) => {
     // emailAndPassword Authentication
 
     // For toast
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:5000/user/${user.id}`)
+    //         .then(res => res.json())
+    //         .then(data => console.log(data))
+    // }, [user])
+
 
     const Data = {
         PasswordSignUp,

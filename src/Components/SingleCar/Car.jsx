@@ -1,12 +1,35 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Rating } from "@mui/material";
+import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../ContextApi/ContextApi";
+import { setStoredData } from "../localStorage.js/localStorage";
 
 
 const Car = () => {
     const CarData = useLoaderData()
     console.log(CarData)
-    const { brand, model, price,rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url } = CarData
+    const { user } = useContext(AuthContext)
+    const { brand, model, price, rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url } = CarData
+    const handleCart = (id) => {
+        setStoredData(id);
+        const CartData = {
+            model: model,
+            id: CarData._id
+        }
+        console.log('Added To CArt', CartData);
+        console.log(user.uid);
+        fetch(`http://localhost:5000/user/${user.uid}`,{
+            method:'PUT',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(CartData)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(error => console.error("An error occurred: " + error));
+    }
     return (
         <div className="py-20 lg:px-0 md:px-8 flex justify-center items-center">
             <div>
@@ -24,7 +47,7 @@ const Car = () => {
                             </div>
                             <div>
                                 <div className="border-blue-600 rounded-md border-2 p-2 hover:bg-blue-900 hover:text-white">
-                                    <button className="font-bold">Add To Cart</button>
+                                    <button onClick={() =>handleCart(CarData._id)} className="font-bold">Add To Cart</button>
                                 </div>
                             </div>
                         </div>

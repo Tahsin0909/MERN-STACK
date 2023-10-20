@@ -44,18 +44,17 @@ const SignUp = () => {
                             console.log(result);
                             const User = {
                                 name: username,
-                                email:result.user.email,
-                                uid:result.user.uid,
-                                myCart:[]
+                                email: result.user.email,
+                                uid: result.user.uid
                             }
                             if (result.user) {
 
-                                fetch('http://localhost:5000/User',{
-                                    method:'POST',
-                                    headers:{
-                                        'content-type':'application/json'
+                                fetch('http://localhost:5000/User', {
+                                    method: 'POST',
+                                    headers: {
+                                        'content-type': 'application/json'
                                     },
-                                    body:JSON.stringify(User)
+                                    body: JSON.stringify(User)
                                 })
                                 setUserNAmeValue('')
                                 setEmailValue('');
