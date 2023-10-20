@@ -1,3 +1,4 @@
+import Achievement from "../Components/Achivement/Achivement";
 import Banner from "../Components/Banner.jsx/Banner";
 import Brands from "../Components/Brands/Brands";
 import YourCar from "../Components/YourCar/YourCar";
@@ -7,6 +8,7 @@ const MainHome = () => {
         <div>
             <Banner></Banner>
             <Brands></Brands>
+            <Achievement></Achievement>
             <YourCar></YourCar>
         </div>
     );
