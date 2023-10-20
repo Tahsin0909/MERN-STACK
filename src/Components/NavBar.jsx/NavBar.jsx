@@ -177,16 +177,29 @@ const NavBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to={'/myCart'} ><img className=" rounded-full mx-4 pr-2  p-1 md:w-12 w-10 " src="https://cdn-icons-png.flaticon.com/128/11761/11761486.png" alt="" /></Link>
                     {/* User Dropdown */}
                     {
                         user.email ? (
                             <div className="dropdown dropdown-end text-black">
-                                <label tabIndex={0} className=" m-1"><img className="w-10 rounded-full" src={user?.photoURL ? `${user.photoURL}` : "https://cdn-icons-png.flaticon.com/128/552/552721.png"} alt="" /></label>
-                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li><p>ID: {user.uid.slice(0, 10)}</p></li>
+                                <label tabIndex={0} className=" m-1"><img className="md:w-12 w-10 rounded-full" src={user?.photoURL ? `${user.photoURL}` : "https://cdn-icons-png.flaticon.com/128/552/552721.png"} alt="" /></label>
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-1 shadow bg-base-100 rounded-md w-60">
+                                    <ul className="flex  items-center">
+                                        <li><img className="w-20 " src={user?.photoURL ? `${user.photoURL}` : "https://cdn-icons-png.flaticon.com/128/552/552721.png"} alt="" />
+                                        </li>
+                                        <li className="">
+                                            <p>{user.uid.slice(0, 10)}</p>
+                                        
+                                        </li>
+                                    </ul>
                                     <li><p>Email: {user.email}</p></li>
-                                    <li><Link onClick={() => { SignOut(), toast.info('Sign Out SuccessFull'); localStorage.removeItem('ShowToast') }}>Sign Out</Link></li>
+                                    <div className="flex gap-1 items-center pb-1 px-3">
+                                        <img className="w-6" src="https://cdn-icons-png.flaticon.com/128/628/628556.png" alt="" />
+                                        <Link to={'/myCart'}>My Cart</Link>
+                                    </div>
+                                    <div className="flex gap-1 items-center py-1 px-3">
+                                        <img className="w-6" src="https://cdn-icons-png.flaticon.com/128/3106/3106798.png" alt="" />
+                                        <Link onClick={() => { SignOut(), toast.info('Sign Out SuccessFull'); localStorage.removeItem('ShowToast') }}>Sign Out</Link>
+                                    </div>
                                 </ul>
                             </div>
                         ) :

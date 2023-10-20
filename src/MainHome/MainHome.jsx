@@ -6,6 +6,7 @@ import YourCar from "../Components/YourCar/YourCar";
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../Components/ContextApi/ContextApi";
 import 'react-toastify/dist/ReactToastify.css';
+import WhyChooseUs from "../Components/WhyChooseUs/WhyChooseUs";
 
 
 const MainHome = () => {
@@ -36,6 +37,7 @@ const MainHome = () => {
             <Brands></Brands>
             <Achievement></Achievement>
             <YourCar></YourCar>
+            <WhyChooseUs></WhyChooseUs>
             <ToastContainer
                 position="top-center"
                 autoClose={4000}

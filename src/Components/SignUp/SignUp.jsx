@@ -41,9 +41,22 @@ const SignUp = () => {
                 if (SpecialRegX.test(password)) {
                     PasswordSignUp(email, password)
                         .then(result => {
-
+                            console.log(result);
+                            const User = {
+                                name: username,
+                                email:result.user.email,
+                                uid:result.user.uid,
+                                myCart:[]
+                            }
                             if (result.user) {
 
+                                fetch('http://localhost:5000/User',{
+                                    method:'POST',
+                                    headers:{
+                                        'content-type':'application/json'
+                                    },
+                                    body:JSON.stringify(User)
+                                })
                                 setUserNAmeValue('')
                                 setEmailValue('');
                                 setPasswordVAlue('');
@@ -86,10 +99,10 @@ const SignUp = () => {
     //Handle Google Sign In
     return (
         <div>
-            <div className="hero min-h-screen glass" style={{ backgroundImage: 'url(https://wallpapers.com/images/high/black-car-4k-iu8eeti5yc8d9a8l.webp)' }}>
+            <div className="hero min-h-screen md:glass" style={{ backgroundImage: 'url(https://wallpapers.com/images/high/black-car-4k-iu8eeti5yc8d9a8l.webp)' }}>
                 <div className=" "></div>
-                <div className="hero-content text-center text-neutral-content rounded-lg shadow-2xl py-4 bg-gray-600 bg-opacity-10 ">
-                    <div className="px-16 ">
+                <div className=" text-center text-neutral-content rounded-lg shadow-2xl md:py-4 bg-gray-600 bg-opacity-10 ">
+                    <div className="md:px-16 ">
                         <div className=" flex justify-center items-center flex-col rounded-xl bg-transparent bg-clip-border text-white shadow-none">
                             <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-white antialiased">
                                 Sign Up
@@ -98,7 +111,7 @@ const SignUp = () => {
                                 Enter your details to register.
                             </p>
                             <form onSubmit={e => { e.preventDefault(), handleSignUp(e) }}
-                                className="mt-8 mb-2 w-72 md:w-[400px] max-w-screen-lg">
+                                className="mt-8 mb-2 w-64 md:w-[400px] ">
                                 <div className="mb-4 flex flex-col gap-6">
                                     <div className="relative h-11 w-full min-w-[200px]">
                                         <input name="username" value={userNameValue} onChange={e => setUserNAmeValue(e.target.value)}
@@ -186,9 +199,9 @@ const SignUp = () => {
                                     </Link>
                                 </p>
                             </form>
-                            <div className="py-2">
-                                <p>Or</p>
-                            </div>
+
+                            <div className="divider">OR</div>
+
                             <div className=" md:w-[400px] w-72 mt-2 rounded-xl ">
                                 <div className="flex justify-center items-center w-full ">
                                     <h1 className="border-b">Sign Up With</h1>

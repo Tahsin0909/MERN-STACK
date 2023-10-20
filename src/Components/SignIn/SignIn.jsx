@@ -39,7 +39,7 @@ const SignIn = () => {
                 if (SpecialRegX.test(password)) {
                     PasswordSignIn(email, password)
                         .then(result => {
-
+                            
                             if (result.user) {
                                 location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
                                 localStorage.setItem('ShowToast', JSON.stringify('false'))
@@ -83,8 +83,8 @@ const SignIn = () => {
         <div>
             <div className="hero min-h-screen glass" style={{ backgroundImage: 'url(https://wallpapers.com/images/high/black-car-4k-iu8eeti5yc8d9a8l.webp)' }}>
                 <div className=" "></div>
-                <div className="hero-content text-center text-neutral-content rounded-lg shadow-2xl py-4 bg-gray-600 bg-opacity-10 ">
-                    <div className="px-16 ">
+                <div className=" text-center text-neutral-content rounded-lg shadow-2xl py-4 bg-gray-600 bg-opacity-10 ">
+                    <div className="md:px-16 px-2">
                         <div className=" flex justify-center items-center flex-col rounded-xl bg-transparent bg-clip-border text-white shadow-none">
                             <h4 className="block font-sans text-2xl font-semibold leading-snug tracking-normal text-white antialiased">
                                 Sign Up
