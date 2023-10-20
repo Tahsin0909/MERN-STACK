@@ -17,6 +17,7 @@ import CarByBrands from './Components/CarByBrands/CarByBrands';
 import Update from './Components/Update/Update';
 import SignUp from './Components/SignUp/SignUp';
 import { ContextApi } from './Components/ContextApi/ContextApi';
+import SignIn from './Components/SignIn/SignIn';
 
 const router = createBrowserRouter([
   {
@@ -68,9 +69,8 @@ const router = createBrowserRouter([
       ,
       {
         path: '/signIn',
-        element: <SignUp></SignUp>
+        element: <SignIn></SignIn>
       }
-
 
     ]
   }
