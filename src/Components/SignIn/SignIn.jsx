@@ -116,12 +116,12 @@ const SignIn = () => {
                                         {/* Error Message for Password Validation  */}
                                         <div className="">
                                             {
-                                                passwordError !== '' && <p className="text-xs text-red-500">*{passwordError}</p>
+                                                passwordError !== '' && <p className="text-lg text-red-500">*{passwordError}</p>
                                             }
                                         </div>
                                     </div>
                                 </div>
-                                <input className="mt-6 block w-full select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                <input className="mt-16 block w-full select-none rounded-lg bg-blue-500 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-blue-500/20 transition-all hover:shadow-lg hover:shadow-blue-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                     type="submit" value="Sign In" />
                                 <p className="mt-4 block text-center font-sans text-base font-normal leading-relaxed text-white antialiased">
                                     Don't Have A Account?

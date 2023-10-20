@@ -129,12 +129,12 @@ const SignUp = () => {
                                         {/* Error Message for Password Validation  */}
                                         <div className="">
                                             {
-                                                passwordError !== '' && <p className="text-xs text-red-500">*{passwordError}</p>
+                                                passwordError !== '' && <p className="text-xl  text-red-500">*{passwordError}</p>
                                             }
                                         </div>
                                     </div>
                                 </div>
-                                <div className="inline-flex items-center">
+                                <div className="inline-flex items-center mt-6">
                                     <label
                                         className="relative -ml-2.5 flex cursor-pointer items-center rounded-full p-3"
                                         htmlFor="checkbox"
