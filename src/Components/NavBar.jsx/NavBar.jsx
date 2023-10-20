@@ -1,8 +1,14 @@
 /* eslint-disable no-unused-vars */
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../ContextApi/ContextApi";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const NavBar = () => {
+    const { user, SignOut } = useContext(AuthContext)
     const Navlink = () => {
+
         return (
             <div className="flex  flex-col lg:flex-row justify-center items-center lg:gap-0 gap-2"  >
                 <NavLink
@@ -156,11 +162,11 @@ const NavBar = () => {
                         <a
                             style={{
                                 fontFamily: 'Lobster',
-                                fontWeight:"lighter"
+                                fontWeight: "lighter"
                             }}
                             className=" md:text-3xl text-lg text-white ">SignatureDrive
                         </a>
-                        <img  className="md:w-24 h-fit w-20  relative right-10" src="https://i.ibb.co/VBjrY05/Untitled-design-1-removebg-preview.png" alt="Company Logo" />
+                        <img className="md:w-24 h-fit w-20  relative right-10" src="https://i.ibb.co/VBjrY05/Untitled-design-1-removebg-preview.png" alt="Company Logo" />
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
@@ -172,8 +178,26 @@ const NavBar = () => {
                 </div>
                 <div className="navbar-end">
                     <Link to={'/myCart'} ><img className=" rounded-full mx-4 pr-2  p-1 md:w-12 w-10 " src="https://cdn-icons-png.flaticon.com/128/11761/11761486.png" alt="" /></Link>
-                    <img className="glass rounded-full md:w-12 w-10 " src="https://cdn-icons-png.flaticon.com/128/2102/2102647.png" alt="" />
-                    <img className="glass rounded-full w-12 hidden" src="https://cdn-icons-png.flaticon.com/128/552/552721.png" alt="" />
+                    {/* User Dropdown */}
+                    {
+                        user.email ? (
+                            <div className="dropdown dropdown-end text-black">
+                                <label tabIndex={0} className=" m-1"><img className="w-10 rounded-full" src={user?.photoURL ? `${user.photoURL}` : "https://cdn-icons-png.flaticon.com/128/552/552721.png"} alt="" /></label>
+                                <ul tabIndex={0} className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li><p>ID: {user.uid.slice(0, 10)}</p></li>
+                                    <li><p>Email: {user.email}</p></li>
+                                    <li><Link onClick={() => { SignOut(), toast.info('Sign Out SuccessFull'); localStorage.removeItem('ShowToast') }}>Sign Out</Link></li>
+                                </ul>
+                            </div>
+                        ) :
+                            (
+                                <div className=" ">
+                                    <Link to={'/signUp'}><img className="glass rounded-full md:w-12 w-10 " src="https://cdn-icons-png.flaticon.com/128/2102/2102647.png" alt="" /></Link>
+                                </div>
+                            )
+
+
+                    }
                 </div>
             </div>
             <div className="text-blue-800 bg-gray-200 font-semibold  hidden lg:flex items-center justify-center" >
@@ -181,6 +205,18 @@ const NavBar = () => {
                     <MiniNavlink></MiniNavlink>
                 }
             </div>
+            <ToastContainer
+                position="top-center"
+                autoClose={4000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         </div>
 
     )

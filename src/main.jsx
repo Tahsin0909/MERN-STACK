@@ -15,6 +15,8 @@ import AllProduct from './Components/AllProduct.jsx/AllProduct';
 import Car from './Components/SingleCar/Car';
 import CarByBrands from './Components/CarByBrands/CarByBrands';
 import Update from './Components/Update/Update';
+import SignUp from './Components/SignUp/SignUp';
+import { ContextApi } from './Components/ContextApi/ContextApi';
 
 const router = createBrowserRouter([
   {
@@ -43,7 +45,7 @@ const router = createBrowserRouter([
       ,
       {
         path: '/product/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
         element: <Car></Car>
       }
       ,
@@ -55,10 +57,20 @@ const router = createBrowserRouter([
       ,
       {
         path: '/update/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/product/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
         element: <Update></Update>
       }
-      
+      ,
+      {
+        path: '/signUp',
+        element: <SignUp></SignUp>
+      }
+      ,
+      {
+        path: '/signIn',
+        element: <SignUp></SignUp>
+      }
+
 
     ]
   }
@@ -67,6 +79,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ContextApi>
+      <RouterProvider router={router} />
+    </ContextApi>
   </React.StrictMode>,
 )
