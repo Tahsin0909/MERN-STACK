@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import { Rating } from "@mui/material";
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
