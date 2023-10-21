@@ -50,7 +50,7 @@ const SignUp = () => {
                             }
                             if (result.user) {
 
-                                fetch('http://localhost:5000/User', {
+                                fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/User', {
                                     method: 'POST',
                                     headers: {
                                         'content-type': 'application/json'

@@ -71,7 +71,7 @@ const ContextApi = ({ children }) => {
     // For toast
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/user/${user.id}`)
+    //     fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/user/${user.id}`)
     //         .then(res => res.json())
     //         .then(data => console.log(data))
     // }, [user])

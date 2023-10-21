@@ -23,7 +23,7 @@ const AddProduct = () => {
             brand, model, price,rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url
         }
         // console.log(Product)
-        fetch('http://localhost:5000/product', {
+        fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

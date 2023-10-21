@@ -12,7 +12,7 @@ const CarByBrands = () => {
     const [BrandCar, setBrandCar] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product')
             .then(res => res.json())
             .then(data => setallBrandCar(data))
     }, [])

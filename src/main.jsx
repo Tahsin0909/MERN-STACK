@@ -21,6 +21,7 @@ import SignIn from './Components/SignIn/SignIn';
 import Carts from './Components/Cart/Carts';
 import AboutUs from './Components/AboutUS/AboutUs';
 import News from './Components/News/News';
+import PrivetRoutes from './Components/PvtRoute/PvtRoute';
 
 const router = createBrowserRouter([
   {
@@ -47,8 +48,8 @@ const router = createBrowserRouter([
       ,
       {
         path: '/action',
-        loader: () => fetch('http://localhost:5000/product'),
-        element: <AllProduct></AllProduct>
+        loader: () => fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product'),
+        element: <PrivetRoutes><AllProduct></AllProduct></PrivetRoutes>
       }
       ,
       {
@@ -58,20 +59,20 @@ const router = createBrowserRouter([
       ,
       {
         path: '/product/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
-        element: <Car></Car>
+        loader: ({ params }) => fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${params.id}`),
+        element: <PrivetRoutes><Car></Car></PrivetRoutes>
       }
       ,
       {
         path: '/:brand',
-        loader: () => fetch('http://localhost:5000/product'),
+        loader: () => fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product'),
         element: <CarByBrands></CarByBrands>
       }
       ,
       {
         path: '/update/:id',
-        loader: ( params ) => fetch(`http://localhost:5000/product/${params.id}`),
-        element: <Update></Update>
+        loader: ( params ) => fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${params.id}`),
+        element: <PrivetRoutes><Update></Update></PrivetRoutes>
       }
       ,
       {
@@ -86,8 +87,8 @@ const router = createBrowserRouter([
       ,
       {
         path: '/myCart/:id',
-        loader: ({params}) => fetch(`http://localhost:5000/myCart/${params}`),
-        element: <Carts></Carts>
+        loader: ({params}) => fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/myCart/${params}`),
+        element: <PrivetRoutes><Carts></Carts></PrivetRoutes>
       }
 
     ]

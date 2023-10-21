@@ -10,7 +10,7 @@ const AllProduct = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('http://localhost:5000/product')
+        fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -19,7 +19,7 @@ const AllProduct = () => {
             })
     }, [])
     const handleDelete = id => {
-        fetch(`http://localhost:5000/product/${id}`, {
+        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
