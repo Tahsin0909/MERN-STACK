@@ -19,6 +19,7 @@ import SignUp from './Components/SignUp/SignUp';
 import { ContextApi } from './Components/ContextApi/ContextApi';
 import SignIn from './Components/SignIn/SignIn';
 import Carts from './Components/Cart/Carts';
+import AboutUs from './Components/AboutUS/AboutUs';
 
 const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
       {
         path: '/addProduct',
         element: <AddProduct></AddProduct>
+      },
+      {
+        path: '/aboutUs',
+        element: <AboutUs></AboutUs>
       }
       ,
       {
