@@ -20,6 +20,7 @@ import { ContextApi } from './Components/ContextApi/ContextApi';
 import SignIn from './Components/SignIn/SignIn';
 import Carts from './Components/Cart/Carts';
 import AboutUs from './Components/AboutUS/AboutUs';
+import News from './Components/News/News';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
         path: '/action',
         loader: () => fetch('http://localhost:5000/product'),
         element: <AllProduct></AllProduct>
+      }
+      ,
+      {
+        path: '/news',
+        element: <News></News>
       }
       ,
       {

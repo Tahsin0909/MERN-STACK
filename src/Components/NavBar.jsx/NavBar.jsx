@@ -63,13 +63,13 @@ const NavBar = () => {
                 >
                     News
                 </NavLink>
-                <NavLink
+                {/* <NavLink
                     to={`/contactUs`}
                     className={({ isActive, isPending }) =>
                         isActive ? "active border py-2 px-4 bg-transparent" : isPending ? "pending" : " px-4"}
                 >
                     Contact US
-                </NavLink>
+                </NavLink> */}
             </div>
         )
     }
