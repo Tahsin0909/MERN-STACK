@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -18,17 +19,36 @@ const CarByBrands = () => {
     useEffect(() => {
         const BrandData = allBrandCar.filter(data => data.brand.toLowerCase() == Brand.brand)
         setBrandCar(BrandData)
-        if(BrandCar.length >0){
+        if (BrandCar.length >= 0) {
             setLoading(false)
         }
-    }, [Brand.brand, allBrandCar,BrandCar.length])
+    }, [Brand.brand, allBrandCar, BrandCar.length])
+    const NoCAr = () => {
+        return (
+            <div className="hero min-h-screen" style={{ backgroundImage: 'url(https://cdn.wallpapersafari.com/68/99/izwPvs.jpg)' }}>
+                <div className="hero-overlay bg-opacity-60"></div>
+                <div className="hero-content text-center text-neutral-content">
+                    <div className="max-w-md">
+                        <h1 className="mb-5 text-5xl font-bold">Notice:</h1>
+                        <p className="text-lg">At Signature, we pride ourselves on offering a wide range of high-quality vehicles to meet our customers' needs. However, we want to be transparent about our current inventory. As of now, we do not carry [Car Brand Name] vehicles in our showroom.</p>
+                        <p className="text-lg">
+                            While we don't have Popular vehicles available, we encourage you to explore the exceptional selection of other popular brands that we do offer. Our inventory includes a diverse assortment of cars, SUVs, and trucks to suit various preferences and requirements.
+                        </p>
+                        <Link to={'/'}><button className="p-2 border text-white bg-blue-900 hover:bg-white hover:text-blue-900 border-blue-900">Go to Home</button></Link>
+                    </div>
+                </div>
+            </div>
+        )
+    }
     return (
-        <div className="py-10">
-            <div className="flex justify-center items-center">
-                <div className="flex justify-center items-center">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className={`${BrandCar.length === 0 ? '' : 'py-10'}`}>
+            <div className={`${BrandCar.length === 0 ? '' : 'flex justify-center items-center'}`}>
+                {/* <div className="flex justify-center items-center"> */}
+                <div className={`${BrandCar.length === 0 ? '' : 'flex justify-center items-center'}`}>
+                    {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> */}
+                    <div className={`${BrandCar.length === 0 ? '' : 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'}`}>
                         {
-                               loading ? <span className="loading loading-bars loading-lg py-40 text-blue-900"></span> : (BrandCar.length == 0) ? <p className="text-2xl py-40 text-center font-bold text-blue-900">Your Cart Is Empty</p>: BrandCar.map(data => <div key={data._id} >
+                            loading ? <span className="loading loading-bars loading-lg py-40 text-blue-900"></span> : (BrandCar.length == 0) ? NoCAr() : BrandCar.map(data => <div key={data._id} >
                                 <div className=" rounded-lg overflow-hidden w-[300px] lg:w-[400px] shadow-lg  transform hover:scale-105 transition-transform duration-300">
                                     <div className="">
                                         {

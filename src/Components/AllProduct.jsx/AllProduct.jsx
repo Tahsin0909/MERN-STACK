@@ -8,12 +8,14 @@ import Swal from "sweetalert2";
 const AllProduct = () => {
 
     const [products, setProducts] = useState([])
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 setProducts(data);
+                setLoading(false)
             })
     }, [])
     const handleDelete = id => {
@@ -52,7 +54,7 @@ const AllProduct = () => {
             <div className="flex justify-center items-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
-                        products.map(data => <div key={data._id} >
+                        loading ? <span className="loading loading-bars loading-lg py-40 text-blue-900"></span> : products.map(data => <div key={data._id} >
                             <div className=" rounded-lg overflow-hidden w-[300px] lg:w-[400px] shadow-lg  transform hover:scale-105 transition-transform duration-300">
                                 <div className="">
                                     {
