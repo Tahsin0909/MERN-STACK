@@ -1,25 +1,38 @@
 import { Rating } from "@mui/material";
-import { Link, useLoaderData, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 
 
 const CarByBrands = () => {
     const Brand = useParams()
-    console.log(Brand.brand)
-    const Product = useLoaderData()
-    console.log(Product)
-    const BrandData = Product.filter(data => data.brand.toLowerCase() == Brand.brand)
-    console.log(BrandData)
+    // console.log(Brand.brand)
+
+    const [allBrandCar, setallBrandCar] = useState([])
+    const [BrandCar, setBrandCar] = useState([])
+    const [loading, setLoading] = useState(true)
+    useEffect(() => {
+        fetch('http://localhost:5000/product')
+            .then(res => res.json())
+            .then(data => setallBrandCar(data))
+    }, [])
+    useEffect(() => {
+        const BrandData = allBrandCar.filter(data => data.brand.toLowerCase() == Brand.brand)
+        setBrandCar(BrandData)
+        if(BrandCar.length >0){
+            setLoading(false)
+        }
+    }, [Brand.brand, allBrandCar,BrandCar.length])
     return (
         <div className="py-10">
             <div className="flex justify-center items-center">
                 <div className="flex justify-center items-center">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                         {
-                            BrandData.map(data => <div key={data._id} >
+                               loading ? <span className="loading loading-bars loading-lg py-40 text-blue-900"></span> : (BrandCar.length == 0) ? <p className="text-2xl py-40 text-center font-bold text-blue-900">Your Cart Is Empty</p>: BrandCar.map(data => <div key={data._id} >
                                 <div className=" rounded-lg overflow-hidden w-[300px] lg:w-[400px] shadow-lg  transform hover:scale-105 transition-transform duration-300">
                                     <div className="">
                                         {
-                                         <img src={data.photo_url} alt="Placeholder" className="w-full h-[250px]" />
+                                            <img src={data.photo_url} alt="Placeholder" className="w-full h-[250px]" />
                                         }
 
                                     </div>

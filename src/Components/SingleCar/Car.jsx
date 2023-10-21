@@ -20,6 +20,7 @@ const Car = () => {
             id: CarData._id,
             photo_url:photo_url,
             brand:brand,
+            price:price,
             rating:rating
         }
         console.log('Added To CArt', CartData);
