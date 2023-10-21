@@ -18,6 +18,7 @@ import Update from './Components/Update/Update';
 import SignUp from './Components/SignUp/SignUp';
 import { ContextApi } from './Components/ContextApi/ContextApi';
 import SignIn from './Components/SignIn/SignIn';
+import Carts from './Components/Cart/Carts';
 
 const router = createBrowserRouter([
   {
@@ -58,7 +59,7 @@ const router = createBrowserRouter([
       ,
       {
         path: '/update/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
+        loader: ( params ) => fetch(`http://localhost:5000/product/${params.id}`),
         element: <Update></Update>
       }
       ,
@@ -70,6 +71,12 @@ const router = createBrowserRouter([
       {
         path: '/signIn',
         element: <SignIn></SignIn>
+      }
+      ,
+      {
+        path: '/myCart/:id',
+        loader: ({params}) => fetch(`http://localhost:5000/myCart/${params}`),
+        element: <Carts></Carts>
       }
 
     ]

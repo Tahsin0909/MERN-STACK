@@ -45,7 +45,8 @@ const SignUp = () => {
                             const User = {
                                 name: username,
                                 email: result.user.email,
-                                uid: result.user.uid
+                                uid: result.user.uid,
+                                myCart:[]
                             }
                             if (result.user) {
 

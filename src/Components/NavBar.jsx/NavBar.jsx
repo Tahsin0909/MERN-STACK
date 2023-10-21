@@ -194,7 +194,7 @@ const NavBar = () => {
                                     <li><p>Email: {user.email}</p></li>
                                     <div className="flex gap-1 items-center pb-1 px-3">
                                         <img className="w-6" src="https://cdn-icons-png.flaticon.com/128/628/628556.png" alt="" />
-                                        <Link to={'/myCart'}>My Cart</Link>
+                                        <Link to={ `/myCart/${user.uid}`}>My Cart</Link>
                                     </div>
                                     <div className="flex gap-1 items-center py-1 px-3">
                                         <img className="w-6" src="https://cdn-icons-png.flaticon.com/128/3106/3106798.png" alt="" />

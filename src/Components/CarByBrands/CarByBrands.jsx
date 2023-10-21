@@ -7,7 +7,7 @@ const CarByBrands = () => {
     console.log(Brand.brand)
     const Product = useLoaderData()
     console.log(Product)
-    const BrandData = Product.filter(data => data?.brand.toLowerCase() == Brand.brand)
+    const BrandData = Product.filter(data => data.brand.toLowerCase() == Brand.brand)
     console.log(BrandData)
     return (
         <div className="py-10">

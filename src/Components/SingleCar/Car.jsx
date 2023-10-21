@@ -3,7 +3,8 @@ import { Rating } from "@mui/material";
 import { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../ContextApi/ContextApi";
-import { setStoredData } from "../localStorage.js/localStorage";
+import Swal from "sweetalert2";
+// import { setStoredData } from "../localStorage.js/localStorage";
 
 
 const Car = () => {
@@ -11,23 +12,44 @@ const Car = () => {
     console.log(CarData)
     const { user } = useContext(AuthContext)
     const { brand, model, price, rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url } = CarData
-    const handleCart = (id) => {
-        setStoredData(id);
+    const handleCart = () => {
+        // setStoredData(id);
         const CartData = {
+            uId: user.uid,
             model: model,
-            id: CarData._id
+            id: CarData._id,
+            photo_url:photo_url,
+            brand:brand,
+            rating:rating
         }
         console.log('Added To CArt', CartData);
         console.log(user.uid);
-        fetch(`http://localhost:5000/user/${user.uid}`,{
-            method:'PUT',
+        fetch(`http://localhost:5000/myCart`,{
+            method:'POST',
             headers:{
                 'content-type': 'application/json'
             },
             body:JSON.stringify(CartData)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {console.log(data)
+            if(data.upsertedCount > 0){
+                Swal.fire({
+                    title: 'Success',
+                    text: 'Product added to Cart',
+                    icon: 'success',
+                    confirmButtonText: 'Done'
+                })
+            }
+            else{
+                Swal.fire({
+                    title: 'Error!',
+                    text: 'You Have already Added',
+                    icon: 'error',
+                    confirmButtonText: 'Try Again'
+                })
+            }
+            })
             .catch(error => console.error("An error occurred: " + error));
     }
     return (
@@ -47,7 +69,7 @@ const Car = () => {
                             </div>
                             <div>
                                 <div className="border-blue-600 rounded-md border-2 p-2 hover:bg-blue-900 hover:text-white">
-                                    <button onClick={() =>handleCart(CarData._id)} className="font-bold">Add To Cart</button>
+                                    <button onClick={() =>handleCart()} className="font-bold">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
