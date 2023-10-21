@@ -18,38 +18,39 @@ const Car = () => {
             uId: user.uid,
             model: model,
             id: CarData._id,
-            photo_url:photo_url,
-            brand:brand,
-            price:price,
-            rating:rating
+            photo_url: photo_url,
+            brand: brand,
+            price: price,
+            rating: rating
         }
         console.log('Added To CArt', CartData);
         console.log(user.uid);
-        fetch(`http://localhost:5000/myCart`,{
-            method:'POST',
-            headers:{
+        fetch(`http://localhost:5000/myCart`, {
+            method: 'POST',
+            headers: {
                 'content-type': 'application/json'
             },
-            body:JSON.stringify(CartData)
+            body: JSON.stringify(CartData)
         })
             .then(res => res.json())
-            .then(data => {console.log(data)
-            if(data.upsertedCount > 0){
-                Swal.fire({
-                    title: 'Success',
-                    text: 'Product added to Cart',
-                    icon: 'success',
-                    confirmButtonText: 'Done'
-                })
-            }
-            else{
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'You Have already Added',
-                    icon: 'error',
-                    confirmButtonText: 'Try Again'
-                })
-            }
+            .then(data => {
+                console.log(data)
+                if (data.upsertedCount > 0) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Product added to Cart',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                }
+                else {
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'You Have already Added',
+                        icon: 'error',
+                        confirmButtonText: 'Try Again'
+                    })
+                }
             })
             .catch(error => console.error("An error occurred: " + error));
     }
@@ -70,7 +71,7 @@ const Car = () => {
                             </div>
                             <div>
                                 <div className="border-blue-600 rounded-md border-2 p-2 hover:bg-blue-900 hover:text-white">
-                                    <button onClick={() =>handleCart()} className="font-bold">Add To Cart</button>
+                                    <button onClick={() => handleCart()} className="font-bold">Add To Cart</button>
                                 </div>
                             </div>
                         </div>
@@ -140,6 +141,26 @@ const Car = () => {
                         </div>
 
                     </div>
+                </div>
+                <div className="carousel lg:ml-64 md:w-[750px]  h-72 mt-10">
+                    <div id="item1" className="carousel-item w-full">
+                        <img src="https://i.pinimg.com/originals/ba/78/e9/ba78e9e0eb6103eb64f425311d6687c5.png" className="md:w-[750px] " />
+                    </div>
+                    <div id="item2" className="carousel-item md:w-[750px] ">
+                        <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/car-ads-cover-template-design-3cf6827ac80a59e0611efe92fdb02f2a_screen.jpg?ts=1628128738" className="md:w-[750px] " />
+                    </div>
+                    <div id="item3" className="carousel-item md:w-[750px] ">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2mlWZNqQ5A9BQQliLAXWnMUmsbpJtcyrzcw&usqp=CAU" className="md:w-[750px] " />
+                    </div>
+                    <div id="item4" className="carousel-item md:w-[750px] ">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOk54Sz7aFZ0KcyaZsni3QA7_Vibb_xbdtCg&usqp=CAU" className="md:w-[750px] " />
+                    </div>
+                </div>
+                <div className="flex justify-center w-full py-2 gap-2">
+                    <a href="#item1" className="btn btn-xs">1</a>
+                    <a href="#item2" className="btn btn-xs">2</a>
+                    <a href="#item3" className="btn btn-xs">3</a>
+                    <a href="#item4" className="btn btn-xs">4</a>
                 </div>
             </div>
         </div>
