@@ -18,7 +18,7 @@ const Carts = () => {
     const UId = useParams()
     console.log(UId.id);
     useEffect(() => {
-        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/myCart/${UId.id}`)
+        fetch(`http://localhost:5000/myCart/${UId.id}`)
             .then(res => res.json())
             .then(data => {
                 setCartData(data)
@@ -27,7 +27,7 @@ const Carts = () => {
 
     }, [UId.id])
     const handleRemove = id => {
-        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/myCart/${id}`, {
+        fetch(`http://localhost:5000/myCart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

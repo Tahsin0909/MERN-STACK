@@ -27,7 +27,7 @@ const Update = () => {
             brand, model, price,rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url
         }
         console.log(UpdatedProduct)
-        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${PrevData._id}`, {
+        fetch(`http://localhost:5000/product/${PrevData._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -70,14 +70,14 @@ const Update = () => {
                     <div className="flex justify-center items-center flex-col md:flex-row gap-4" >
                         <div className="">
                             <select name="brand" className="select select-primary w-64 ">
-                                <option disabled selected>{PrevData ? `${PrevData.brand}` : 'Brand'}</option>
-                                <option>Honda</option>
-                                <option>Toyota</option>
-                                <option>Audi</option>
-                                <option>Nissan</option>
-                                <option>Mercedes-Benz</option>
-                                <option>BMW</option>
-                                <option>Chevrolet</option>
+                                <option disabled defaultValue={PrevData.brand}>{PrevData ? `${PrevData.brand}` : 'Brand'}</option>
+                                <option>honda</option>
+                                <option>toyota</option>
+                                <option>audi</option>
+                                <option>nissan</option>
+                                <option>mercedes-Benz</option>
+                                <option>bMW</option>
+                                <option>chevrolet</option>
                             </select>
                         </div>
                         <div className="relative h-11 w-64">

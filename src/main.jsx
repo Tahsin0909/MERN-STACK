@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       ,
       {
         path: '/action',
-        loader: () => fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product'),
+        loader: () => fetch('http://localhost:5000/product'),
         element: <PrivetRoutes><AllProduct></AllProduct></PrivetRoutes>
       }
       ,
@@ -59,19 +59,19 @@ const router = createBrowserRouter([
       ,
       {
         path: '/product/:id',
-        loader: ({ params }) => fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:5000/product/${params.id}`),
         element: <PrivetRoutes><Car></Car></PrivetRoutes>
       }
       ,
       {
         path: '/:brand',
-        loader: () => fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product'),
+        loader: () => fetch('http://localhost:5000/product'),
         element: <CarByBrands></CarByBrands>
       }
       ,
       {
         path: '/update/:id',
-        loader: ( params ) => fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${params.id}`),
+        loader: ( {params} ) => fetch(`http://localhost:5000/product/${params.id}`),
         element: <PrivetRoutes><Update></Update></PrivetRoutes>
       }
       ,
@@ -87,7 +87,7 @@ const router = createBrowserRouter([
       ,
       {
         path: '/myCart/:id',
-        loader: ({params}) => fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/myCart/${params}`),
+        loader: ({params}) => fetch(`http://localhost:5000/myCart/${params}`),
         element: <PrivetRoutes><Carts></Carts></PrivetRoutes>
       }
 

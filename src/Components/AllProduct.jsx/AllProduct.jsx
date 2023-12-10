@@ -10,7 +10,9 @@ const AllProduct = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     useEffect(() => {
-        fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product')
+        fetch('http://localhost:5000/product',{
+            credentials:'include'
+        })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -19,7 +21,7 @@ const AllProduct = () => {
             })
     }, [])
     const handleDelete = id => {
-        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product/${id}`, {
+        fetch(`http://localhost:5000/product/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -49,12 +51,20 @@ const AllProduct = () => {
     return (
         <div className="bg-blue-100 py-10">
             <div>
+                <select name="" id="">
+                    <option value="5">6</option>
+                    <option value="10">10</option>
+                    <option value="20">15</option>
+                    <option value="50">20</option>
+                </select>
+            </div>
+            <div>
                 <p className="text-center text-2xl font-bold mb-8">Total Car: {products.length} </p>
             </div>
             <div className="flex justify-center items-center">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     {
-                        loading ? <span className="loading loading-bars loading-lg py-40 text-blue-900"></span> : products.map(data => <div key={data._id} >
+                        loading ? <span className="loading loading-bars loading-lg py-40 text-blue-900"></span> : products?.map(data => <div key={data._id} >
                             <div className=" rounded-lg overflow-hidden w-[300px] lg:w-[400px] shadow-lg  transform hover:scale-105 transition-transform duration-300">
                                 <div className="">
                                     {

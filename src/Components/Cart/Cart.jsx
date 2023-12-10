@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const Cart = ({ Data, setCartData }) => {
     const handleRemove = id => {
-        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/myCart/${id}`, {
+        fetch(`http://localhost:5000/myCart/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

@@ -23,7 +23,7 @@ const AddProduct = () => {
             brand, model, price,rating, description, seatingCapacity, mileage, acceleration, engine, transmission, fueltype, technology_1, technology_2, photo_url
         }
         // console.log(Product)
-        fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/product', {
+        fetch('http://localhost:5000/product', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -65,13 +65,13 @@ const AddProduct = () => {
                         <div className="">
                             <select name="brand" className="select select-primary w-64 ">
                                 <option disabled selected>Brand</option>
-                                <option>Honda</option>
-                                <option>Toyota</option>
-                                <option>Audi</option>
-                                <option>Nissan</option>
-                                <option>Mercedes-Benz</option>
-                                <option>BMW</option>
-                                <option>Chevrolet</option>
+                                <option>honda</option>
+                                <option>toyota</option>
+                                <option>audi</option>
+                                <option>nissan</option>
+                                <option>mercedes-Benz</option>
+                                <option>bMW</option>
+                                <option>chevrolet</option>
                             </select>
                         </div>
                         <div className="relative h-11 w-64">

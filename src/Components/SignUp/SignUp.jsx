@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../ContextApi/ContextApi";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 const SignUp = () => {
     const { PasswordSignUp, GoogleSignUp } = useContext(AuthContext)
 
@@ -46,17 +47,21 @@ const SignUp = () => {
                                 name: username,
                                 email: result.user.email,
                                 uid: result.user.uid,
-                                myCart:[]
+                                myCart: []
                             }
                             if (result.user) {
 
-                                fetch('https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/User', {
+                                fetch('http://localhost:5000/User', {
                                     method: 'POST',
                                     headers: {
                                         'content-type': 'application/json'
                                     },
                                     body: JSON.stringify(User)
                                 })
+                                //jwt token
+                                axios.post('http://localhost:5000/jwt', { email: email, password: password }, { withCredentials: true })
+
+
                                 setUserNAmeValue('')
                                 setEmailValue('');
                                 setPasswordVAlue('');
@@ -93,6 +98,8 @@ const SignUp = () => {
 
                     localStorage.setItem('ShowToast', JSON.stringify('false'))
                     location?.search ? navigate(`${location?.search?.slice(1, location.search.length)}`) : navigate('/')
+                    //jwt token
+                    axios.post('http://localhost:5000/jwt', { email: result.user.email}, { withCredentials: true })
                 }
             })
     }

@@ -25,7 +25,7 @@ const Car = () => {
         }
         console.log('Added To CArt', CartData);
         console.log(user.uid);
-        fetch(`https://mern-stack-server-f016uivpb-tahsins-projects-38f8b810.vercel.app/myCart`, {
+        fetch(`http://localhost:5000/myCart`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
